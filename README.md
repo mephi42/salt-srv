@@ -7,3 +7,4 @@
 5. `# hostname $(cat /etc/hostname)`
 6. `# mkdir -p /etc/salt && echo rainbow >/etc/salt/minion_id`
 7. `# apt install salt-minion`
+8. `# reboot`
