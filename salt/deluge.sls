@@ -15,3 +15,8 @@ deluged-service:
         - enable: True
         - watch:
             - file: /etc/default/deluged
+
+pi:
+    user.present:
+        - groups:
+            - debian-deluged
