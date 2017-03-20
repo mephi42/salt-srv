@@ -1,3 +1,6 @@
+apt-file:
+    pkg.installed
+
 gdb:
     pkg.installed
 

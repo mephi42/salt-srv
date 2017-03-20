@@ -7,6 +7,7 @@ base:
         - password
         - sshd
         - noswap
+        - postgresql
         - timezone
         - tools
         - unattended-upgrades
