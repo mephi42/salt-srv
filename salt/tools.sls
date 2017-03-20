@@ -1,6 +1,9 @@
 gdb:
     pkg.installed
 
+git:
+    pkg.installed
+
 htop:
     pkg.installed
 
