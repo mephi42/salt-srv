@@ -1,6 +1,9 @@
 deluged:
     pkg.installed
 
+deluge-console:
+    pkg.installed
+
 /etc/default/deluged:
     file.replace:
         - pattern: ENABLE_DELUGED=0
