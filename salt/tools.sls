@@ -10,6 +10,9 @@ htop:
 iotop:
     pkg.installed
 
+lsof:
+    pkg.installed
+
 mc:
     pkg.installed
 
