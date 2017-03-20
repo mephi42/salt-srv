@@ -20,3 +20,7 @@ pi:
     user.present:
         - groups:
             - debian-deluged
+
+/var/lib/deluged/config/auth:
+    file.managed:
+        - mode: 660
