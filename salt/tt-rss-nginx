@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name tt-rss.local;
+    root /opt/tt-rss;
+    index index.php;
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+    }
+}

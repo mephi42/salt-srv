@@ -9,5 +9,6 @@ base:
         - noswap
         - postgresql
         - timezone
+        - tt-rss
         - tools
         - unattended-upgrades
