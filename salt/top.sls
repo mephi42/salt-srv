@@ -4,6 +4,7 @@ base:
         - docker
         - docker-compose
         - fail2ban
+        - password
         - sshd
         - noswap
         - timezone
