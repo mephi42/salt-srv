@@ -1,0 +1,2 @@
+dphys-swapfile:
+    pkg.purged

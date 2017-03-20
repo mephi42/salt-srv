@@ -7,6 +7,9 @@ git:
 htop:
     pkg.installed
 
+iotop:
+    pkg.installed
+
 mc:
     pkg.installed
 
