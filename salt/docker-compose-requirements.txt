@@ -1,0 +1,2 @@
+docker-compose==1.11.2
+six==1.10.0

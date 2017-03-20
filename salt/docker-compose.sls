@@ -1,18 +1,11 @@
-python-pip:
-    cmd.run:
-        - name: easy_install pip==8.0.3
-        - unless: which pip
-        - reload_modules: True
+python-virtualenv:
+    pkg.installed
 
-six:
-    pip.installed:
-        - name: six
-        - require:
-            - cmd: python-pip
+/opt/docker-compose:
+    virtualenv.managed:
+        - requirements: salt://docker-compose-requirements.txt
 
-docker-compose:
-    pip.installed:
-        - name: docker-compose
-        - require:
-            - cmd: python-pip
-            - pip: six
+/usr/bin/docker-compose:
+    file.managed:
+        - source: salt://docker-compose
+        - mode: 0755

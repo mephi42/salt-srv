@@ -1,0 +1,3 @@
+#!/bin/sh
+. /opt/docker-compose/bin/activate
+exec /opt/docker-compose/bin/docker-compose "$@"
