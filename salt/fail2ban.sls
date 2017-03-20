@@ -11,6 +11,5 @@ sendmail:
 fail2ban-service:
     service.running:
         - name: fail2ban
-        - enable: True
         - watch:
             - file: /etc/fail2ban/jail.d/*

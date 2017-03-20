@@ -12,12 +12,12 @@ deluge-console:
 deluged-service:
     service.running:
         - name: deluged
-        - enable: True
         - watch:
             - file: /etc/default/deluged
 
-pi:
+pi-is-in-debian-deluged:
     user.present:
+        - name: pi
         - groups:
             - debian-deluged
 
