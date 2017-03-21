@@ -1,5 +1,5 @@
-git:
-    pkg.installed
+include:
+    - git
 
 php5-cli:
     pkg.installed

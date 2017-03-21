@@ -1,10 +1,10 @@
+include:
+    - git
+
 apt-file:
     pkg.installed
 
 gdb:
-    pkg.installed
-
-git:
     pkg.installed
 
 htop:

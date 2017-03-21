@@ -5,6 +5,7 @@ base:
         - docker-compose
         - fail2ban
         - password
+        - redmine
         - sshd
         - noswap
         - postgresql

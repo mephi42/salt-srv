@@ -1,0 +1,7 @@
+production:
+    adapter: postgresql
+    database: redmine
+    host:
+    username: www-data
+    password:
+    encoding: utf8
