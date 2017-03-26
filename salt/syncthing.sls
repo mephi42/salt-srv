@@ -38,3 +38,10 @@ syncthing@syncthing:
 /etc/nginx/sites-enabled/syncthing:
     file.symlink:
         - target: ../sites-available/syncthing
+
+syncthing-inotify:
+    pkg.installed
+
+syncthing-inotify@syncthing.service:
+    service.running:
+        - enable: True
