@@ -16,6 +16,7 @@ redmine-deps:
     pkg.installed:
         - pkgs:
             - libmagickcore-dev
+            - libmagickwand-dev
             - libpq-dev
 
 redmine-gems:
