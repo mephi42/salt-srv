@@ -45,6 +45,11 @@ bundler:
         - user: www-data
         - group: www-data
 
+/opt/redmine-3.3.2/Gemfile.lock:
+    file.managed:
+        - user: rvm
+        - group: rvm
+
 . /home/rvm/.rvm/scripts/rvm && rvm 2.4.0 && rvm gemset use redmine-gems && bundle install --without development test:
     cmd.run:
         - cwd: /opt/redmine-3.3.2
