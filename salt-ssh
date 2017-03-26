@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e -x
+cd $(dirname $0)
+if [ ! -d ENV ]; then
+    mkdir ENV
+    virtualenv ENV
+    . ENV/bin/activate
+    pip install salt==2016.11.3
+else
+    . ENV/bin/activate
+fi
+exec salt-ssh  "$@"

@@ -1,0 +1,4 @@
+rainbow:
+    host: rainbow
+    user: pi
+    sudo: True
