@@ -9,6 +9,7 @@ base:
         - sshd
         - noswap
         - postgresql
+        - syncthing
         - timezone
         - tt-rss
         - tools
