@@ -12,10 +12,17 @@ ruby-2.4.0:
         - require:
             - pkg: ruby-2.4.0-deps
 
+redmine-deps:
+    pkg.installed:
+        - pkgs:
+            - libpq-dev
+
 redmine-gems:
     rvm.gemset_present:
         - ruby: ruby-2.4.0
         - user: rvm
+        - require:
+            - pkg: redmine-deps
 
 bundler:
     gem.installed:
