@@ -15,6 +15,7 @@ ruby-2.4.0:
 redmine-deps:
     pkg.installed:
         - pkgs:
+            - libmagickcore-dev
             - libpq-dev
 
 redmine-gems:
