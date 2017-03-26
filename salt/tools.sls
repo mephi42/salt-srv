@@ -19,6 +19,9 @@ lsof:
 mc:
     pkg.installed
 
+ppp:
+    pkg.installed
+
 screen:
     pkg.installed
 
