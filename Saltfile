@@ -1,3 +1,4 @@
 salt-ssh:
     config_dir: ./etc/salt
     ssh_log_file: ./ENV/var/log/salt/ssh
+    state_output: mixed
