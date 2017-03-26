@@ -1,3 +1,6 @@
+include:
+    - nginx
+
 syncthing-repo:
     pkgrepo.managed:
         - name: deb http://apt.syncthing.net/ syncthing release
@@ -27,3 +30,11 @@ syncthing@syncthing:
     file.managed:
        - user: syncthing
        - group: syncthing
+
+/etc/nginx/sites-available/syncthing:
+    file.managed:
+        - source: salt://syncthing-nginx
+
+/etc/nginx/sites-enabled/syncthing:
+    file.symlink:
+        - target: ../sites-available/syncthing

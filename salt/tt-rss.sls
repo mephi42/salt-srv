@@ -1,5 +1,6 @@
 include:
     - git
+    - nginx
 
 php5-cli:
     pkg.installed
@@ -10,9 +11,6 @@ php5-fpm:
 php5-pgsql:
     pkg.installed
 
-nginx:
-    pkg.installed
-
 /etc/nginx/sites-available/tt-rss:
     file.managed:
         - source: salt://tt-rss-nginx
@@ -20,12 +18,6 @@ nginx:
 /etc/nginx/sites-enabled/tt-rss:
     file.symlink:
         - target: ../sites-available/tt-rss
-
-nginx-service:
-    service.running:
-        - name: nginx
-        - watch:
-            - file: /etc/nginx/*
 
 https://tt-rss.org/gitlab/fox/tt-rss.git:
     git.latest:
