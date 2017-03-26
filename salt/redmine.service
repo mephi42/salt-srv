@@ -1,0 +1,9 @@
+[Unit]
+After=network.target postgresql.service
+
+[Service]
+User=www-data
+ExecStart=/opt/redmine-3.3.2/bundle exec rails server -e production
+
+[Install]
+WantedBy=multi-user.target
