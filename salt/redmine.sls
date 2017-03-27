@@ -16,6 +16,7 @@ ruby-2.3.3:
 redmine-deps:
     pkg.installed:
         - pkgs:
+            - ccache
             - clang
             - libcurl4-openssl-dev
             - libmagickcore-dev
@@ -72,9 +73,9 @@ bundler:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec env CC=clang CXX=clang++ passenger-config install-agent:
+/opt/redmine-3.3.2/bundle exec env CC='ccache clang' CXX='ccache clang++' passenger-config install-agent:
     cmd.run:
-        - runas: www-data
+        - runas: rvm
 
 /var/www/.passenger:
     file.directory:
