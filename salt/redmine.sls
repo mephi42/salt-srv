@@ -73,14 +73,18 @@ bundler:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec env CC='ccache clang' CXX='ccache clang++' passenger-config install-agent:
+/opt/redmine-3.3.2/locations.ini:
+    file.managed:
+        - user: rvm
+        - group: rvm
+
+/opt/redmine-3.3.2/bundle exec env --unset=PASSENGER_LOCATION_CONFIGURATION_FILE passenger-config about --make-locations-ini >/opt/redmine-3.3.2/locations.ini:
     cmd.run:
         - runas: rvm
 
-/var/www/.passenger:
-    file.directory:
-        - user: www-data
-        - group: www-data
+/opt/redmine-3.3.2/bundle exec env CC='ccache clang' CXX='ccache clang++' passenger-config install-agent:
+    cmd.run:
+        - runas: rvm
 
 /etc/systemd/system/redmine.service:
     file.managed:

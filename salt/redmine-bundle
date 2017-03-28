@@ -4,4 +4,5 @@ set -e
 rvm 2.3.3
 rvm gemset use redmine-gems
 cd /opt/redmine-3.3.2
+export PASSENGER_LOCATION_CONFIGURATION_FILE=/opt/redmine-3.3.2/locations.ini
 exec bundle "$@"
