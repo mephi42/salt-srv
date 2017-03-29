@@ -1,4 +1,3 @@
 #!/bin/bash
 set -e -x
-sudo route -n add -net 10.0.0.0/24 10.0.1.1
-exec sudo pppd nodetach noauth silent pty "sudo -u $(whoami) $(which ssh) rainbow sudo pppd nodetach notty noauth" ipparam vpn 10.0.1.2:10.0.1.1
+exec sudo pppd nodetach noauth silent pty "$(which route) -n add -net 10.0.0.0/24 10.0.1.1; sudo -u $(whoami) $(which ssh) rainbow sudo pppd nodetach notty noauth" ipparam vpn 10.0.1.2:10.0.1.1
