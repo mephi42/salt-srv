@@ -22,6 +22,7 @@ php5-pgsql:
 https://tt-rss.org/gitlab/fox/tt-rss.git:
     git.latest:
         - target: /opt/tt-rss
+        - branch: master
 
 /opt/tt-rss/config.php:
     file.managed:
