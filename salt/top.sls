@@ -11,6 +11,7 @@ base:
         - postgresql
         - syncthing
         - timezone
+        - tor
         - tt-rss
         - tools
         - unattended-upgrades
