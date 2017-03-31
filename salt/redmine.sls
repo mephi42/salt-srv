@@ -82,6 +82,10 @@ bundler:
     cmd.run:
         - runas: rvm
 
+mkdir -p $(/opt/redmine-3.3.2/bundle exec passenger-config about support-binaries-dir):
+    cmd.run:
+        - runas: rvm
+
 /opt/redmine-3.3.2/bundle exec passenger-config install-agent:
     cmd.run:
         - runas: rvm
