@@ -82,7 +82,11 @@ bundler:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec env CC='ccache clang' CXX='ccache clang++' passenger-config install-agent:
+/opt/redmine-3.3.2/bundle exec passenger-config install-agent:
+    cmd.run:
+        - runas: rvm
+
+/opt/redmine-3.3.2/bundle exec passenger-config install-standalone-runtime --engine nginx:
     cmd.run:
         - runas: rvm
 
