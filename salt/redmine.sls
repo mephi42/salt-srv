@@ -78,7 +78,7 @@ bundler:
         - user: rvm
         - group: rvm
 
-/opt/redmine-3.3.2/bundle exec env --unset=PASSENGER_LOCATION_CONFIGURATION_FILE passenger-config about --make-locations-ini >/opt/redmine-3.3.2/locations.ini:
+/opt/redmine-3.3.2/bundle exec env --unset=PASSENGER_LOCATION_CONFIGURATION_FILE bash -c 'passenger-config about --make-locations-ini >/opt/redmine-3.3.2/locations.ini':
     cmd.run:
         - runas: rvm
 
