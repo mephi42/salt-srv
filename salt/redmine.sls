@@ -86,6 +86,10 @@ mkdir -p $(/opt/redmine-3.3.2/bundle exec passenger-config about support-binarie
     cmd.run:
         - runas: rvm
 
+/opt/redmine-3.3.2/bundle exec passenger-config build-native-support:
+    cmd.run:
+        - runas: rvm
+
 /opt/redmine-3.3.2/bundle exec passenger-config install-agent:
     cmd.run:
         - runas: rvm
