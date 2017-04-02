@@ -4,11 +4,12 @@ base:
         - docker
         - docker-compose
         - fail2ban
+        - ljr-tor
         - password
-        - redmine
-        - sshd
         - noswap
         - postgresql
+        - redmine
+        - sshd
         - syncthing
         - timezone
         - tor
