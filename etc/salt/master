@@ -1,1 +1,7 @@
 root_dir: ./ENV
+file_roots:
+    base:
+        - ./salt
+pillar_roots:
+    base:
+        - ./pillar

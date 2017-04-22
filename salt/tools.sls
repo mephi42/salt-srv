@@ -19,6 +19,9 @@ lsof:
 mc:
     pkg.installed
 
+nmap:
+    pkg.installed
+
 ppp:
     pkg.installed
 
