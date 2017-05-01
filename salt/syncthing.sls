@@ -31,6 +31,16 @@ syncthing@syncthing:
        - user: syncthing
        - group: syncthing
 
+/opt/redmine/backups/.stfolder:
+    file.managed:
+       - user: syncthing
+       - group: syncthing
+
+/opt/redmine/backups/.stignore:
+    file.managed:
+       - user: syncthing
+       - group: syncthing
+
 /etc/nginx/sites-available/syncthing:
     file.managed:
         - source: salt://syncthing-nginx
