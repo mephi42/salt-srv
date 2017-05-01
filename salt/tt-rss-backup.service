@@ -1,0 +1,7 @@
+[Unit]
+After=postgresql.service
+
+[Service]
+User=www-data
+ExecStart=/opt/tt-rss/backup
+Type=oneshot

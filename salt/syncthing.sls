@@ -21,25 +21,19 @@ syncthing@syncthing:
     service.running:
        - enable: True
 
-/var/lib/deluged/Downloads/.stfolder:
+{% for dir in ['/var/lib/deluged/Downloads',
+               '/opt/redmine/backups',
+               '/opt/tt-rss/backups'] %}
+{{ dir }}/.stfolder:
     file.managed:
        - user: syncthing
        - group: syncthing
 
-/var/lib/deluged/Downloads/.stignore:
+{{ dir }}/.stignore:
     file.managed:
        - user: syncthing
        - group: syncthing
-
-/opt/redmine/backups/.stfolder:
-    file.managed:
-       - user: syncthing
-       - group: syncthing
-
-/opt/redmine/backups/.stignore:
-    file.managed:
-       - user: syncthing
-       - group: syncthing
+{% endfor %}
 
 /etc/nginx/sites-available/syncthing:
     file.managed:

@@ -59,3 +59,27 @@ https://tt-rss.org/gitlab/fox/tt-rss.git:
 tt-rss-updater:
     service.running:
        - enable: True
+
+/opt/tt-rss/backups:
+    file.directory:
+        - user: www-data
+        - group: www-data
+
+/opt/tt-rss/backup:
+    file.managed:
+        - source: salt://tt-rss-backup
+        - user: www-data
+        - group: www-data
+        - mode: 0755
+
+/etc/systemd/system/tt-rss-backup.service:
+    file.managed:
+        - source: salt://tt-rss-backup.service
+
+/etc/systemd/system/tt-rss-backup.timer:
+    file.managed:
+        - source: salt://tt-rss-backup.timer
+
+tt-rss-backup.timer:
+    service.running:
+       - enable: True
