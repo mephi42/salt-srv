@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e -x
+cd $(dirname $0)
+backup_id="$(date +%Y%m%d-%H%M%S)"
+mkdir -p "backups/$backup_id"
+pg_dump redmine >"backups/$backup_id/db"
+tar -C backups --remove-files -cJf "backups/$backup_id.tar.xz" "$backup_id"

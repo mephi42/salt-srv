@@ -113,3 +113,22 @@ redmine:
 /etc/nginx/sites-enabled/redmine:
     file.symlink:
         - target: ../sites-available/redmine
+
+/opt/redmine-3.3.2/backup:
+    file.managed:
+        - source: salt://redmine-backup
+        - user: www-data
+        - group: www-data
+        - mode: 0755
+
+/etc/systemd/system/redmine-backup.service:
+    file.managed:
+        - source: salt://redmine-backup.service
+
+/etc/systemd/system/redmine-backup.timer:
+    file.managed:
+        - source: salt://redmine-backup.timer
+
+redmine-backup.timer:
+    service.running:
+       - enable: True
