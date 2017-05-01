@@ -3,5 +3,5 @@ After=postgresql.service
 
 [Service]
 User=www-data
-ExecStart=/opt/redmine-3.3.2/backup
+ExecStart=/opt/redmine/backup
 Type=oneshot

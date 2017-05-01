@@ -42,59 +42,63 @@ bundler:
         - user: www-data
         - group: www-data
 
-/opt/redmine-3.3.2/config/database.yml:
+/opt/redmine:
+    file.symlink:
+        - target: redmine-3.3.2
+
+/opt/redmine/config/database.yml:
     file.managed:
         - source: salt://redmine-database.yml
 
-/opt/redmine-3.3.2/.bundle:
+/opt/redmine/.bundle:
     file.directory:
         - user: rvm
         - group: rvm
 
-/opt/redmine-3.3.2/Gemfile.lock:
+/opt/redmine/Gemfile.lock:
     file.managed:
         - user: rvm
         - group: rvm
 
-/opt/redmine-3.3.2/Gemfile.local:
+/opt/redmine/Gemfile.local:
     file.managed:
         - source: salt://redmine-Gemfile.local
         - user: www-data
         - group: www-data
 
-/opt/redmine-3.3.2/bundle:
+/opt/redmine/bundle:
     file.managed:
         - source: salt://redmine-bundle
         - user: www-data
         - group: www-data
         - mode: 0755
 
-/opt/redmine-3.3.2/bundle install --without development test:
+/opt/redmine/bundle install --without development test:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/locations.ini:
+/opt/redmine/locations.ini:
     file.managed:
         - user: rvm
         - group: rvm
 
-/opt/redmine-3.3.2/bundle exec env --unset=PASSENGER_LOCATION_CONFIGURATION_FILE bash -c 'passenger-config about --make-locations-ini >/opt/redmine-3.3.2/locations.ini':
+/opt/redmine/bundle exec env --unset=PASSENGER_LOCATION_CONFIGURATION_FILE bash -c 'passenger-config about --make-locations-ini >/opt/redmine/locations.ini':
     cmd.run:
         - runas: rvm
 
-mkdir -p $(/opt/redmine-3.3.2/bundle exec passenger-config about support-binaries-dir):
+mkdir -p $(/opt/redmine/bundle exec passenger-config about support-binaries-dir):
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec passenger-config build-native-support:
+/opt/redmine/bundle exec passenger-config build-native-support:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec passenger-config install-agent:
+/opt/redmine/bundle exec passenger-config install-agent:
     cmd.run:
         - runas: rvm
 
-/opt/redmine-3.3.2/bundle exec passenger-config install-standalone-runtime --engine nginx:
+/opt/redmine/bundle exec passenger-config install-standalone-runtime --engine nginx:
     cmd.run:
         - runas: rvm
 
@@ -114,7 +118,7 @@ redmine:
     file.symlink:
         - target: ../sites-available/redmine
 
-/opt/redmine-3.3.2/backup:
+/opt/redmine/backup:
     file.managed:
         - source: salt://redmine-backup
         - user: www-data
