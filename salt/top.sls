@@ -1,5 +1,6 @@
 base:
     rainbow:
+        - certbot
         - deluge
         - docker
         - docker-compose
