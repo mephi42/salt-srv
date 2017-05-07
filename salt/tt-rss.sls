@@ -19,7 +19,7 @@ php5-pgsql:
     file.symlink:
         - target: ../sites-available/tt-rss
 
-https://tt-rss.org/gitlab/fox/tt-rss.git:
+https://tt-rss.org/fox/tt-rss.git:
     git.latest:
         - target: /opt/tt-rss
         - branch: master
