@@ -25,9 +25,10 @@ syncthing@syncthing:
                '/opt/redmine/backups',
                '/opt/tt-rss/backups'] %}
 {{ dir }}/.stfolder:
-    file.managed:
+    file.directory:
        - user: syncthing
        - group: syncthing
+       - force: True
 
 {{ dir }}/.stignore:
     file.managed:
