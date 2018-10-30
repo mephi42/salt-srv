@@ -17,3 +17,10 @@ base:
         - tt-rss
         - tools
         - unattended-upgrades
+    light:
+        - password
+        - noswap
+        - sshd
+        - timezone
+        - tools
+        - unattended-upgrades

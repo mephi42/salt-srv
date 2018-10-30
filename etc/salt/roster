@@ -2,3 +2,7 @@ rainbow:
     host: rainbow
     user: pi
     sudo: True
+light:
+    host: light
+    user: pi
+    sudo: True

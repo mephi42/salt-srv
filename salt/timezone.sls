@@ -1,6 +1,6 @@
 local:
     timezone.system:
-        - name: Europe/Moscow
+        - name: {{ pillar['timezone'] }}
 
 rsyslog:
     service.running:

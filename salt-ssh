@@ -3,9 +3,9 @@ set -e -x
 cd $(dirname $0)
 if [ ! -d ENV ]; then
     mkdir ENV
-    virtualenv ENV
+    virtualenv ENV --python=python2
     . ENV/bin/activate
-    pip install salt==2016.11.3
+    pip install 'salt == 2016.11.10' 'tornado < 5.0'
 else
     . ENV/bin/activate
 fi
