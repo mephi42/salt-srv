@@ -1,0 +1,2 @@
+cryptsetup-bin:
+  pkg.installed

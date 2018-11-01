@@ -18,8 +18,10 @@ base:
         - tools
         - unattended-upgrades
     light:
+        - cryptsetup-bin
         - password
         - noswap
+        - samba
         - sshd
         - timezone
         - tools
