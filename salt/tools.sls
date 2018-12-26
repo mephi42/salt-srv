@@ -22,6 +22,9 @@ mc:
 nmap:
     pkg.installed
 
+pci-utils:
+    pkg.installed
+
 ppp:
     pkg.installed
 
@@ -38,4 +41,7 @@ tcpdump:
     pkg.installed
 
 vim:
+    pkg.installed
+
+virt-what:
     pkg.installed

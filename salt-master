@@ -2,4 +2,4 @@
 set -e -x
 cd "$(dirname "$0")"
 . salt-env
-exec salt-ssh "$@"
+exec salt-master "$@"
