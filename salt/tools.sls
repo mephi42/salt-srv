@@ -4,6 +4,9 @@ include:
 apt-file:
     pkg.installed
 
+colordiff:
+    pkg.installed
+
 gdb:
     pkg.installed
 
