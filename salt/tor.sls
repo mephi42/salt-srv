@@ -10,6 +10,7 @@ privoxy:
     file.append:
         - text:
             - "forward-socks5 / 127.0.0.1:9050 ."
+            - "accept-intercepted-requests 1"
 
 privoxy-service:
     service.running:

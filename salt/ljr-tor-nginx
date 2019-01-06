@@ -4,5 +4,6 @@ server {
     server_name lj.rossia.org;
     location / {
         proxy_pass http://localhost:8118/;
+        proxy_set_header Host $host;
     }
 }

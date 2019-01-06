@@ -1,5 +1,6 @@
 include:
     - nginx
+    - tor
 
 /etc/nginx/sites-available/ljr-tor:
     file.managed:
