@@ -2,13 +2,13 @@ include:
     - git
     - nginx
 
-php5-cli:
+php7.0-cli:
     pkg.installed
 
-php5-fpm:
+php7.0-fpm:
     pkg.installed
 
-php5-pgsql:
+php7.0-pgsql:
     pkg.installed
 
 /etc/nginx/sites-available/tt-rss:
