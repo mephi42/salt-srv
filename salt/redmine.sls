@@ -54,6 +54,10 @@ bundler:
     file.symlink:
         - target: redmine-{{ redmine_version }}
 
+/opt/redmine/config/configuration.yml:
+    file.managed:
+        - source: salt://redmine-configuration.yml
+
 /opt/redmine/config/database.yml:
     file.managed:
         - source: salt://redmine-database.yml
@@ -128,6 +132,8 @@ redmine-db:
 redmine:
     service.running:
        - enable: True
+       - watch:
+           - file: /opt/redmine/config/*
 
 /etc/nginx/sites-available/redmine:
     file.managed:
