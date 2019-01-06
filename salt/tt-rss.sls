@@ -35,8 +35,11 @@ www-data:
 
 tt-rss:
     postgres_database.present:
-        - encoding: utf-8
+        - encoding: utf8  # https://github.com/saltstack/salt/issues/31258
         - owner: www-data
+
+# TODO:
+# sudo -u www-data psql tt-rss </opt/tt-rss/schema/ttrss_schema_pgsql.sql
 
 /opt/tt-rss/config.php:
     file.managed:
