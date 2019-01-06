@@ -3,7 +3,7 @@ include:
 
 syncthing-repo:
     pkgrepo.managed:
-        - name: deb http://apt.syncthing.net/ syncthing release
+        - name: deb http://apt.syncthing.net/ syncthing stable
         - key_url: salt://syncthing.gpg
 
 syncthing:
@@ -43,10 +43,3 @@ syncthing@syncthing:
 /etc/nginx/sites-enabled/syncthing:
     file.symlink:
         - target: ../sites-available/syncthing
-
-syncthing-inotify:
-    pkg.installed
-
-syncthing-inotify@syncthing.service:
-    service.running:
-        - enable: True
