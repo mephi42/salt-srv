@@ -24,6 +24,14 @@ https://tt-rss.org/fox/tt-rss.git:
         - target: /opt/tt-rss
         - branch: master
 
+www-data:
+    postgres_user.present
+
+tt-rss:
+    postgres_database.present:
+        - encoding: utf-8
+        - owner: www-data
+
 /opt/tt-rss/config.php:
     file.managed:
         - source: salt://tt-rss-config.php
