@@ -1,17 +1,22 @@
+{% set ruby_version = '2.4.5' %}
+
 include:
     - nginx
     - rvm
 
-ruby-2.3.3-deps:
+ruby-{{ ruby_version }}-deps:
     pkg.installed:
         - pkgs:
             - libssl-dev
 
-ruby-2.3.3:
+ruby-{{ ruby_version }}:
     rvm.installed:
         - user: rvm
+        - opts:
+            - -j
+            - {{ grains['num_cpus'] }}
         - require:
-            - pkg: ruby-2.3.3-deps
+            - pkg: ruby-{{ ruby_version }}-deps
 
 redmine-deps:
     pkg.installed:
@@ -25,7 +30,7 @@ redmine-deps:
 
 redmine-gems:
     rvm.gemset_present:
-        - ruby: ruby-2.3.3
+        - ruby: ruby-{{ ruby_version }}
         - user: rvm
         - require:
             - pkg: redmine-deps
@@ -33,7 +38,7 @@ redmine-gems:
 bundler:
     gem.installed:
         - user: rvm
-        - ruby: ruby-2.3.3@redmine-gems
+        - ruby: ruby-{{ ruby_version }}@redmine-gems
 
 /opt:
     archive.extracted:

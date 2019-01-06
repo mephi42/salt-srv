@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 . /home/rvm/.rvm/scripts/rvm
-rvm 2.3.3
+rvm 2.4.5
 rvm gemset use redmine-gems
 cd /opt/redmine
 export PASSENGER_LOCATION_CONFIGURATION_FILE=/opt/redmine/locations.ini
