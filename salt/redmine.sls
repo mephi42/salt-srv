@@ -1,4 +1,6 @@
 {% set ruby_version = '2.4.5' %}
+{% set redmine_version = '3.3.9' %}
+{% set redmine_md5 = 'eeb4e92681987fe1726cb962803d5cf1' %}
 
 include:
     - nginx
@@ -42,14 +44,14 @@ bundler:
 
 /opt:
     archive.extracted:
-        - source: http://www.redmine.org/releases/redmine-3.3.2.tar.gz
-        - source_hash: md5=8e403981dc3a19a42ee978f055be62ca
+        - source: http://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz
+        - source_hash: md5={{ redmine_md5 }}
         - user: www-data
         - group: www-data
 
 /opt/redmine:
     file.symlink:
-        - target: redmine-3.3.2
+        - target: redmine-{{ redmine_version }}
 
 /opt/redmine/config/database.yml:
     file.managed:
@@ -57,6 +59,11 @@ bundler:
 
 /opt/redmine/.bundle:
     file.directory:
+        - user: rvm
+        - group: rvm
+
+/opt/redmine/.bundle/config:
+    file.managed:
         - user: rvm
         - group: rvm
 
