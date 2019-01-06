@@ -62,6 +62,11 @@ bundler:
     file.managed:
         - source: salt://redmine-database.yml
 
+/opt/redmine/config/secrets.yml:
+    file.managed:
+        - source: salt://redmine-secrets.yml
+        - template: jinja
+
 /opt/redmine/.bundle:
     file.directory:
         - user: rvm
@@ -124,6 +129,10 @@ redmine-db:
         - name: redmine
         - encoding: utf8  # https://github.com/saltstack/salt/issues/31258
         - owner: www-data
+
+# TODO:
+# sudo -u www-data env RAILS_ENV=production ./bundle exec rake db:migrate
+# sudo -u www-data env RAILS_ENV=production ./bundle exec rake redmine:load_default_data
 
 /etc/systemd/system/redmine.service:
     file.managed:
