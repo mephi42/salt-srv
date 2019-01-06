@@ -8,7 +8,13 @@ php7.0-cli:
 php7.0-fpm:
     pkg.installed
 
+php7.0-mbstring:
+    pkg.installed
+
 php7.0-pgsql:
+    pkg.installed
+
+php7.0-xml:
     pkg.installed
 
 /etc/nginx/sites-available/tt-rss:
