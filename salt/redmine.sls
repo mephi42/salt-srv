@@ -5,6 +5,7 @@
 include:
     - nginx
     - rvm
+    - postgresql
 
 ruby-{{ ruby_version }}-deps:
     pkg.installed:
@@ -113,6 +114,12 @@ mkdir -p $(/opt/redmine/bundle exec passenger-config about support-binaries-dir)
 /opt/redmine/bundle exec passenger-config install-standalone-runtime --engine nginx:
     cmd.run:
         - runas: rvm
+
+redmine-db:
+    postgres_database.present:
+        - name: redmine
+        - encoding: utf8  # https://github.com/saltstack/salt/issues/31258
+        - owner: www-data
 
 /etc/systemd/system/redmine.service:
     file.managed:

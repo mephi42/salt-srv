@@ -1,6 +1,7 @@
 include:
     - git
     - nginx
+    - postgresql
 
 php7.0-cli:
     pkg.installed
@@ -29,9 +30,6 @@ https://tt-rss.org/fox/tt-rss.git:
     git.latest:
         - target: /opt/tt-rss
         - branch: master
-
-www-data:
-    postgres_user.present
 
 tt-rss:
     postgres_database.present:
