@@ -137,6 +137,11 @@ redmine:
         - group: www-data
         - mode: 0755
 
+/opt/redmine/backups:
+    file.directory:
+        - user: www-data
+        - group: www-data
+
 /etc/systemd/system/redmine-backup.service:
     file.managed:
         - source: salt://redmine-backup.service
