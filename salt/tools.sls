@@ -22,7 +22,7 @@ mc:
 nmap:
     pkg.installed
 
-pci-utils:
+pciutils:
     pkg.installed
 
 ppp:
