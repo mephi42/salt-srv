@@ -24,3 +24,9 @@ pi-is-in-debian-deluged:
 /var/lib/deluged/config/auth:
     file.managed:
         - mode: 660
+
+/var/lib/deluged/Downloads:
+    file.directory:
+        - user: debian-deluged
+        - group: debian-deluged
+        - mode: 755
