@@ -4,10 +4,10 @@ overlay:
 
 docker-repo:
     pkgrepo.managed:
-        - name: deb [arch=armhf] https://apt.dockerproject.org/repo raspbian-jessie testing
+        - name: deb [arch=armhf] https://download.docker.com/linux/debian stretch stable
         - key_url: salt://docker.gpg
 
-docker-engine:
+docker-ce:
     pkg.installed
 
 docker:
@@ -16,8 +16,15 @@ docker:
         - watch:
             - file: /etc/docker/daemon.json
         - require:
-            - pkg: docker-engine
+            - pkg: docker-ce
 
 /etc/docker/daemon.json:
     file.managed:
         - source: salt://docker-daemon.json
+
+docker-group:
+  group.present:
+    - name: docker
+    - system: True
+    - addusers:
+      - pi

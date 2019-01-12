@@ -19,6 +19,7 @@ base:
         - unattended-upgrades
     light:
         - cryptsetup-bin
+        - docker
         - password
         - noswap
         - samba
